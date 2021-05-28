@@ -9,12 +9,14 @@ function App() {
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [error, setError] = useState("");
 
-  const handleClick = () => () =>
+  const handleClick = () => () => {
+    setError(undefined);
     checkAnswer(questionId, currentAnswer, (question, questionId, error) => {
       setQuestion(question);
       setQuestionId(questionId);
       setError(error);
     });
+  };
 
   useEffect(() => {
     checkAnswer(questionId, currentAnswer, (question, questionId, error) => {

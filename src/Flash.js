@@ -2,10 +2,9 @@ import { useState } from "react";
 import "./Flash.css";
 
 const Flash = ({ message }) => {
-  const [extraClass, setExtraclass] = useState();
-  if (message !== null && message !== "") {
+  if (message !== null && message !== "" && message !== undefined) {
     return (
-      <div id="error-flash" className="error ">
+      <div id="error-flash" className="error hide-opacity">
         {message}
       </div>
     );

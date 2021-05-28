@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/trashpanda/static/css/main.3e344ac5.chunk.css",
-    "main.js": "/trashpanda/static/js/main.2f9ae211.chunk.js",
-    "main.js.map": "/trashpanda/static/js/main.2f9ae211.chunk.js.map",
+    "main.js": "/trashpanda/static/js/main.8546e917.chunk.js",
+    "main.js.map": "/trashpanda/static/js/main.8546e917.chunk.js.map",
     "runtime-main.js": "/trashpanda/static/js/runtime-main.4d19647d.js",
     "runtime-main.js.map": "/trashpanda/static/js/runtime-main.4d19647d.js.map",
     "static/js/2.ecec194a.chunk.js": "/trashpanda/static/js/2.ecec194a.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4d19647d.js",
     "static/js/2.ecec194a.chunk.js",
     "static/css/main.3e344ac5.chunk.css",
-    "static/js/main.2f9ae211.chunk.js"
+    "static/js/main.8546e917.chunk.js"
   ]
 }

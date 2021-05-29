@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/trashpanda/static/css/main.6e9f8c14.chunk.css",
-    "main.js": "/trashpanda/static/js/main.7ea87389.chunk.js",
-    "main.js.map": "/trashpanda/static/js/main.7ea87389.chunk.js.map",
+    "main.css": "/trashpanda/static/css/main.3e0a3ce1.chunk.css",
+    "main.js": "/trashpanda/static/js/main.a9feed49.chunk.js",
+    "main.js.map": "/trashpanda/static/js/main.a9feed49.chunk.js.map",
     "runtime-main.js": "/trashpanda/static/js/runtime-main.01fdec53.js",
     "runtime-main.js.map": "/trashpanda/static/js/runtime-main.01fdec53.js.map",
     "static/js/2.d3ce0dcd.chunk.js": "/trashpanda/static/js/2.d3ce0dcd.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.bd0014a2.chunk.js": "/trashpanda/static/js/3.bd0014a2.chunk.js",
     "static/js/3.bd0014a2.chunk.js.map": "/trashpanda/static/js/3.bd0014a2.chunk.js.map",
     "index.html": "/trashpanda/index.html",
-    "static/css/main.6e9f8c14.chunk.css.map": "/trashpanda/static/css/main.6e9f8c14.chunk.css.map",
+    "static/css/main.3e0a3ce1.chunk.css.map": "/trashpanda/static/css/main.3e0a3ce1.chunk.css.map",
     "static/js/2.d3ce0dcd.chunk.js.LICENSE.txt": "/trashpanda/static/js/2.d3ce0dcd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.01fdec53.js",
     "static/js/2.d3ce0dcd.chunk.js",
-    "static/css/main.6e9f8c14.chunk.css",
-    "static/js/main.7ea87389.chunk.js"
+    "static/css/main.3e0a3ce1.chunk.css",
+    "static/js/main.a9feed49.chunk.js"
   ]
 }

@@ -54,3 +54,9 @@ textarea {
   border: 8px solid black;
   padding: 1em;
 }
+
+#question {
+  font-size: 2em;
+  line-height: 2em;
+  margin-bottom: 2em;
+}

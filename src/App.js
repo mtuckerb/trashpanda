@@ -32,7 +32,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">Trash Panda Online Scavenger Hunt</header>
       <Flash />
-      <h1> {question} </h1>
+      <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
       <textarea
         id={questionId}
         onChange={(e) => setCurrentAnswer(e.target.value)}

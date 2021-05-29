@@ -1,17 +1,21 @@
-.error.hide-opacity {
-  opacity: 0;
-}
-
-.error {
-  border: 4px solid #dc9a9a;
+.flash {
+  width: 100%;
+  padding: 1em;
+  margin: auto;
   color: black;
   font-size: 1.5em;
   font-weight: 500;
-  background-color: #f3e1e4;
-  width: 80%;
-  padding: 1em;
-  margin: auto;
-  margin-top: 2em;
   transition: opacity 3s ease-in-out;
   opacity: 1;
+}
+
+.flash.error {
+  background-color: #f3e1e4;
+}
+
+.flash.success {
+  background-color: #c8ffd6;
+}
+.flash.hide-opacity {
+  opacity: 0;
 }

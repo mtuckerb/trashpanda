@@ -3,6 +3,7 @@ import Bus from "./utils/bus.js";
 import React, { useEffect, useState } from "react";
 import checkAnswer from "./lib/getAnswer.js";
 import Flash from "./Flash.js";
+import Logo from "./trashpanda.png";
 
 const App = () => {
   window.flash = (message, type) => Bus.emit("flash", { message, type });
@@ -40,7 +41,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">Trash Panda Online Scavenger Hunt</header>
+      <header className="App-header">
+        <img src={Logo} className="logo" />
+        Trash Panda Online Scavenger Hunt
+      </header>
       <Flash />
       <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
       <textarea

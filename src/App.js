@@ -5,8 +5,7 @@ import checkAnswer from "./lib/getAnswer.js";
 import Flash from "./Flash.js";
 
 const App = () => {
-  window.flash = (message, type = "flash hide-opacity") =>
-    Bus.emit("flash", { message, type });
+  window.flash = (message, type) => Bus.emit("flash", { message, type });
 
   const [question, setQuestion] = useState("…loading");
   const [questionId, setQuestionId] = useState(1);
@@ -17,7 +16,7 @@ const App = () => {
       setCurrentAnswer("");
       setQuestion(question);
       setQuestionId(questionId);
-      window.flash(s.message, s.status + " flash hide-opacity");
+      window.flash(s.message, s.status);
     });
   };
 
@@ -28,12 +27,24 @@ const App = () => {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  let [type, setType] = useState("");
+
+  useEffect(() => {
+    Bus.addListener("flash", ({ message, type }) => {
+      setType(type);
+      setTimeout(() => {
+        setType("");
+      }, 4000);
+    });
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">Trash Panda Online Scavenger Hunt</header>
       <Flash />
       <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
       <textarea
+        className={type}
         id={questionId}
         onChange={(e) => setCurrentAnswer(e.target.value)}
         value={currentAnswer}

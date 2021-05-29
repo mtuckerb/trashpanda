@@ -11,7 +11,7 @@ const Flash = () => {
     Bus.addListener("flash", ({ message, type }) => {
       setVisibility(true);
       setMessage(message);
-      setType(type);
+      setType(type + " flash hide-opacity");
       setTimeout(() => {
         setVisibility(false);
       }, 4000);

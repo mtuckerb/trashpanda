@@ -45,19 +45,23 @@ const App = () => {
         <img src={Logo} className="logo" />
         Trash Panda Online Scavenger Hunt
       </header>
-      <Flash />
       <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
-      <textarea
-        className={type}
-        id={questionId}
-        onChange={(e) => setCurrentAnswer(e.target.value)}
-        value={currentAnswer}
-      ></textarea>
-      <br />
-      <br />
-      <button id="Submit" onClick={handleClick()}>
-        Check Your Answer
-      </button>
+      <Flash />
+      <div class="answerSection">
+        <hr />
+        <h1> Your Answer: </h1>
+        <input
+          className={type}
+          id={questionId}
+          onChange={(e) => setCurrentAnswer(e.target.value)}
+          value={currentAnswer}
+        ></input>
+        <br />
+        <br />
+        <button id="Submit" onClick={handleClick()}>
+          Check Your Answer
+        </button>
+      </div>
     </div>
   );
 };

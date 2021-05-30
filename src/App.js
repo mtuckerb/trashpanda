@@ -62,6 +62,11 @@ const App = () => {
           Check Your Answer
         </button>
       </div>
+      <footer>
+        Coding by <a href="https://github.com/mtuckerb"> @mtuckerb </a>
+        &nbsp; Diabolical Questions and Answers by{" "}
+        <a href="https://github.com/milesobradford"> @milesobradford </a>
+      </footer>
     </div>
   );
 };

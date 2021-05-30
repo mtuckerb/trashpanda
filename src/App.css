@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap");
+
 .App {
   text-align: center;
 }
@@ -9,7 +11,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .logo {
-    animation: App-logo-spin infinite 40s linear;
+    animation-name: slidein;
+    animation-duration: 1s;
   }
 }
 
@@ -20,6 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Sigmar One", cursive;
   font-size: calc(40px + 2vmin);
   color: white;
   padding-bottom: 2em;
@@ -40,12 +44,10 @@
 @keyframes slidein {
   from {
     margin-left: 100%;
-    width: 300%;
   }
 
   to {
     margin-left: 0%;
-    width: 100%;
   }
 }
 
@@ -60,11 +62,10 @@
 }
 
 input {
-  height: 2em;
   width: 50%;
   border: 8px solid black;
   font-size: 2em;
-  padding: 0.5em;
+  padding: 0.25em;
 }
 
 #question {

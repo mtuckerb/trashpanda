@@ -43,7 +43,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={Logo} className="logo" />
-        Trash Panda Online Scavenger Hunt
+        Trash Panda <br /> Online Scavenger Hunt
       </header>
       <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
       <Flash />

@@ -67,7 +67,12 @@ input {
   font-size: 2em;
   padding: 0.25em;
 }
-
+@media only screen and (max-width: 600px) {
+  #Submit {
+    font-size: 1em;
+    height: 4em;
+  }
+}
 #question {
   font-size: 1.5em;
   line-height: 2em;

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/trashpanda/static/css/main.3c3abbd7.chunk.css",
+    "main.css": "/trashpanda/static/css/main.fd053e96.chunk.css",
     "main.js": "/trashpanda/static/js/main.a8d1bd3b.chunk.js",
     "main.js.map": "/trashpanda/static/js/main.a8d1bd3b.chunk.js.map",
     "runtime-main.js": "/trashpanda/static/js/runtime-main.01fdec53.js",
@@ -10,14 +10,14 @@
     "static/js/3.bd0014a2.chunk.js": "/trashpanda/static/js/3.bd0014a2.chunk.js",
     "static/js/3.bd0014a2.chunk.js.map": "/trashpanda/static/js/3.bd0014a2.chunk.js.map",
     "index.html": "/trashpanda/index.html",
-    "static/css/main.3c3abbd7.chunk.css.map": "/trashpanda/static/css/main.3c3abbd7.chunk.css.map",
+    "static/css/main.fd053e96.chunk.css.map": "/trashpanda/static/css/main.fd053e96.chunk.css.map",
     "static/js/2.d3ce0dcd.chunk.js.LICENSE.txt": "/trashpanda/static/js/2.d3ce0dcd.chunk.js.LICENSE.txt",
     "static/media/trashpanda.abba0b14.png": "/trashpanda/static/media/trashpanda.abba0b14.png"
   },
   "entrypoints": [
     "static/js/runtime-main.01fdec53.js",
     "static/js/2.d3ce0dcd.chunk.js",
-    "static/css/main.3c3abbd7.chunk.css",
+    "static/css/main.fd053e96.chunk.css",
     "static/js/main.a8d1bd3b.chunk.js"
   ]
 }

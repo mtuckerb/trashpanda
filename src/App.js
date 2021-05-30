@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import checkAnswer from "./lib/getAnswer.js";
 import Flash from "./Flash.js";
 import Logo from "./trashpanda.png";
+import { useCookies } from "react-cookie";
 
 const App = () => {
   window.flash = (message, type) => Bus.emit("flash", { message, type });
@@ -11,20 +12,28 @@ const App = () => {
   const [question, setQuestion] = useState("…loading");
   const [questionId, setQuestionId] = useState(1);
   const [currentAnswer, setCurrentAnswer] = useState("");
+  const [cookies, setCookie] = useCookies();
 
   const handleClick = () => () => {
-    checkAnswer(questionId, currentAnswer, (question, questionId, s = {}) => {
-      setCurrentAnswer("");
-      setQuestion(question);
-      setQuestionId(questionId);
-      window.flash(s.message, s.status);
-    });
+    setCookie(questionId, currentAnswer);
+    checkAnswer(
+      questionId,
+      currentAnswer,
+      (question, newQuestionId, s = {}) => {
+        setQuestion(question);
+        setQuestionId(newQuestionId);
+        window.flash(s.message, s.status);
+        setCurrentAnswer(cookies[newQuestionId] || "");
+      }
+    );
   };
 
   useEffect(() => {
-    checkAnswer(questionId, currentAnswer, (question, questionId) => {
+    document.cookies = cookies;
+    checkAnswer(questionId, currentAnswer, (question, newQuestionId) => {
       setQuestion(question);
-      setQuestionId(questionId);
+      setQuestionId(newQuestionId);
+      setCurrentAnswer(cookies[newQuestionId] || "");
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -42,12 +51,16 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={Logo} className="logo" />
+        <img
+          alt="A raccoon slides in from the right"
+          src={Logo}
+          className="logo"
+        />
         Trash Panda <br /> Online Scavenger Hunt
       </header>
       <div id="question" dangerouslySetInnerHTML={{ __html: question }} />
       <Flash />
-      <div class="answerSection">
+      <div className="answerSection">
         <hr />
         <h1> Your Answer: </h1>
         <input
@@ -65,7 +78,7 @@ const App = () => {
       <footer>
         Coding by <a href="https://github.com/mtuckerb"> @mtuckerb </a>
         &nbsp; Diabolical Questions and Answers by{" "}
-        <a href="https://github.com/milesobradford"> @milesobradford </a>
+        <a href="https://github.com/milesbradford"> @milesbradford </a>
       </footer>
     </div>
   );

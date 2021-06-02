@@ -5,6 +5,7 @@ import checkAnswer from "./lib/getAnswer.js";
 import Flash from "./Flash.js";
 import Logo from "./trashpanda.png";
 import { useCookies } from "react-cookie";
+import ReactGA from "react-ga";
 
 const App = () => {
   window.flash = (message, type) => Bus.emit("flash", { message, type });
@@ -50,6 +51,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <div id="analytics">
+        {ReactGA.initialize("G-KTC7Q78H78")}
+        {ReactGA.pageview(window.location.pathname + window.location.search)}
+      </div>
+
       <header className="App-header">
         <img
           alt="A raccoon slides in from the right"

@@ -9,10 +9,7 @@ const checkAnswer = async (question_id, answer, callback) => {
     body: JSON.stringify({ id: question_id, answer: answer }),
   };
 
-  fetch(
-    "https://fezokn45b9.execute-api.us-west-1.amazonaws.com/default/trashPanda",
-    requestOptions
-  )
+  fetch(process.env.REACT_APP_ANSWERS_URL, requestOptions)
     .then((response) => response.json())
     .then((data) => {
       callback(data.question, data.id, data.status);

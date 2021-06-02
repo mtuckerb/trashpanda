@@ -76,7 +76,6 @@ const App = () => {
           value={currentAnswer}
         ></input>
         <br />
-        <br />
         <button id="Submit" onClick={handleClick()}>
           Check Your Answer
         </button>

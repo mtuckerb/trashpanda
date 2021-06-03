@@ -13,6 +13,6 @@ functions:
   score:
     handler: lambda_function.lambda_handler
     events:
-      - httpApi:
+      - http:
           path: /trashpanda
-          method: post
+          method: any

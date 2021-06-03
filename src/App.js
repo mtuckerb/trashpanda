@@ -6,6 +6,7 @@ import Flash from "./Flash.js";
 import Logo from "./trashpanda.png";
 import { useCookies } from "react-cookie";
 import ReactGA from "react-ga";
+import Confetti from "./Confetti.js";
 
 const App = () => {
   window.flash = (message, type) => Bus.emit("flash", { message, type });
@@ -14,6 +15,7 @@ const App = () => {
   const [questionId, setQuestionId] = useState(1);
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [cookies, setCookie] = useCookies();
+  const [confettiOn, setConfettiOn] = useState(false);
 
   const handleClick = () => () => {
     setCookie(questionId, currentAnswer);
@@ -55,7 +57,7 @@ const App = () => {
         {ReactGA.initialize("G-KTC7Q78H78")}
         {ReactGA.pageview(window.location.pathname + window.location.search)}
       </div>
-
+      <Confetti isAnimationEnabled={confettiOn} />
       <header className="App-header">
         <img
           alt="A raccoon slides in from the right"

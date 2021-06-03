@@ -12,7 +12,7 @@ const checkAnswer = async (question_id, answer, callback) => {
   fetch(process.env.REACT_APP_ANSWERS_URL, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      callback(data.question, data.id, data.status);
+      callback(data);
     });
   return [];
 };

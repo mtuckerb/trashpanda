@@ -18,11 +18,11 @@ export default class Fireworks extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.state.isAnimationEnabled = props.isAnimationEnabled || false;
+    this.state.isAnimationEnabled = this.state.isAnimationEnabled || false;
     this.state.animationInstance = null;
-    this.state.isAnimationEnabled
-      ? (this.intervalId = setInterval(this.nextTickAnimation, 400))
-      : this.stopAnimation();
+    if (this.state.isAnimationEnabled) {
+      this.intervalId = setTimeout(this.nextTickAnimation, 3000);
+    }
   }
 
   getAnimationSettings(originXA, originXB) {
@@ -46,21 +46,10 @@ export default class Fireworks extends React.Component {
       this.state.animationInstance(this.getAnimationSettings(0.7, 0.9));
   };
 
-  startAnimation() {
-    if (!this.state.isAnimationEnabled) {
-      this.intervalId = setInterval(this.nextTickAnimation, 400);
-    }
-  }
-
-  stopAnimation() {
-    this.state.animationInstance && this.state.animationInstance.reset();
-    return this.intervalId && clearInterval(this.intervalId);
-  }
-
   componentDidUpdate() {
-    this.state.isAnimationEnabled
-      ? this.startAnimation()
-      : this.stopAnimation();
+    if (this.props.isAnimationEnabled) {
+      this.intervalId = setTimeout(this.nextTickAnimation, 3000);
+    }
   }
   componentWillUnmount() {
     this.setState((state, props) => ({ isAnimationEnabled: false }));

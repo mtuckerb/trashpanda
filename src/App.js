@@ -19,25 +19,20 @@ const App = () => {
 
   const handleClick = () => () => {
     setCookie(questionId, currentAnswer);
-    checkAnswer(
-      questionId,
-      currentAnswer,
-      (question, newQuestionId, s = {}) => {
-        setQuestion(question);
-        setQuestionId(newQuestionId);
-        window.flash(s.message, s.status);
-        setCurrentAnswer(cookies[newQuestionId] || "");
+    checkAnswer(questionId, currentAnswer, (data) => {
+      setQuestion(data.question);
+      setQuestionId(data.id);
+      window.flash(data.status.message, data.status.status);
+      setCurrentAnswer(cookies[data.id] || "");
+      if (data.id >= data.final_question - 1) {
+        setConfettiOn(true);
       }
-    );
+    });
   };
 
   useEffect(() => {
     document.cookies = cookies;
-    checkAnswer(questionId, currentAnswer, (question, newQuestionId) => {
-      setQuestion(question);
-      setQuestionId(newQuestionId);
-      setCurrentAnswer(cookies[newQuestionId] || "");
-    });
+    handleClick()();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   let [type, setType] = useState("");
@@ -58,6 +53,7 @@ const App = () => {
         {ReactGA.pageview(window.location.pathname + window.location.search)}
       </div>
       <Confetti isAnimationEnabled={confettiOn} />
+      {confettiOn ? "true" : "false"}
       <header className="App-header">
         <img
           alt="A raccoon slides in from the right"

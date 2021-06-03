@@ -67,7 +67,7 @@ def post(event)
     body: {
       id: next_element['id'],
       question: next_element['question'],
-      total_questions: QA.count,
+      final_question: QA.last['id'],
       status: status
     }.to_json
   }

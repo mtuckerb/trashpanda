@@ -16,6 +16,7 @@ const App = () => {
   const [currentAnswer, setCurrentAnswer] = useState("");
   const [cookies, setCookie] = useCookies();
   const [confettiOn, setConfettiOn] = useState(false);
+  const [logoClass, setLogoClass] = useState("logo");
 
   const handleClick = () => () => {
     setCookie(questionId, currentAnswer);
@@ -24,8 +25,9 @@ const App = () => {
       setQuestionId(data.id);
       window.flash(data.status.message, data.status.status);
       setCurrentAnswer(cookies[data.id] || "");
-      if (data.id >= data.final_question - 1) {
+      if (data.id >= data.final_question) {
         setConfettiOn(true);
+        setLogoClass("logo-spin");
       }
     });
   };
@@ -53,12 +55,11 @@ const App = () => {
         {ReactGA.pageview(window.location.pathname + window.location.search)}
       </div>
       <Confetti isAnimationEnabled={confettiOn} />
-      {confettiOn ? "true" : "false"}
       <header className="App-header">
         <img
           alt="A raccoon slides in from the right"
           src={Logo}
-          className="logo"
+          className={logoClass}
         />
         Trash Panda <br /> Online Scavenger Hunt
       </header>

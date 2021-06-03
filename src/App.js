@@ -5,7 +5,6 @@ import checkAnswer from "./lib/getAnswer.js";
 import Flash from "./Flash.js";
 import Logo from "./trashpanda.png";
 import { useCookies } from "react-cookie";
-import ReactGA from "react-ga";
 import Confetti from "./Confetti.js";
 
 const App = () => {
@@ -50,10 +49,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <div id="analytics">
-        {ReactGA.initialize("G-KTC7Q78H78")}
-        {ReactGA.pageview(window.location.pathname + window.location.search)}
-      </div>
       <Confetti isAnimationEnabled={confettiOn} />
       <header className="App-header">
         <img

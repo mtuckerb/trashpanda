@@ -4,7 +4,6 @@ require 'yaml'
 
 file = File.read('./store.yml')
 QA = YAML.load(file)
-LAST_ID = QA.last['id']
 
 def lambda_handler(event:, context:)
   @logger = Logger.new($stdout)
@@ -40,12 +39,19 @@ def options(event)
   }
 end
 
+def store(data)
+  sns = Aws::SNS::Resource.new(region: 'us-west-2')
+  topic = sns.topic('arn:aws:sns:us-east-1:237177014511:trashpanda')
+  topic.publish({ subject: 'trashpanda winner', message: "congratulations, you have a new winner #{data}" })
+end
+
 def post(event)
   data = JSON.parse(event['body'])
   @logger.info data
 
   if is_correct?(data.dig('id'), data.dig('answer'))
-    if data.dig('id') == LAST_ID
+    if data.dig('final')
+      store(data['answer'])
       next_element = element_by_id(data['id'].to_i)
       status = { status: 'success', message: 'You WIN!' }
     else
@@ -67,7 +73,7 @@ def post(event)
     body: {
       id: next_element['id'],
       question: next_element['question'],
-      final_question: QA.last['id'],
+      final_question: next_element['final'],
       status: status
     }.to_json
   }

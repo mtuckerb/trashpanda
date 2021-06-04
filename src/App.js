@@ -24,7 +24,7 @@ const App = () => {
       setQuestionId(data.id);
       window.flash(data.status.message, data.status.status);
       setCurrentAnswer(cookies[data.id] || "");
-      if (data.id >= data.final_question) {
+      if (data.final_question) {
         setConfettiOn(true);
         setLogoClass("logo-spin");
       }

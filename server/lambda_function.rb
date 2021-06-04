@@ -48,18 +48,18 @@ end
 def post(event)
   data = JSON.parse(event['body'])
   @logger.info data
-
+  next_element = {}
   if is_correct?(data.dig('id'), data.dig('answer'))
     if data.dig('final')
-      store(data['answer'])
-      next_element = element_by_id(data['id'].to_i)
+      store(data.dig('answer'))
+      next_element = element_by_id(data.dig('id').to_i)
       status = { status: 'success', message: 'You WIN!' }
     else
-      next_element = element_by_id(data['id'].to_i + 1)
+      next_element = element_by_id(data.dig('id').to_i + 1)
       status = { status: 'success', message: 'Correct!' }
     end
   else
-    next_element = element_by_id(data['id'].to_i)
+    next_element = element_by_id(data.dig('id').to_i)
     status = { status: 'error', message: 'Incorrect Answer!' }
   end
 

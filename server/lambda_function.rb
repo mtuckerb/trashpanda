@@ -1,9 +1,11 @@
 require 'json'
 require 'logger'
 require 'yaml'
+require 'aws-sdk-sns'
 
 file = File.read('./store.yml')
 QA = YAML.load(file)
+LAST_ID = QA.last['id']
 
 def lambda_handler(event:, context:)
   @logger = Logger.new($stdout)
@@ -40,9 +42,10 @@ def options(event)
 end
 
 def store(data)
-  sns = Aws::SNS::Resource.new(region: 'us-west-2')
+  sns = Aws::SNS::Resource.new(region: 'us-east-1')
   topic = sns.topic('arn:aws:sns:us-east-1:237177014511:trashpanda')
-  topic.publish({ subject: 'trashpanda winner', message: "congratulations, you have a new winner #{data}" })
+  topic.publish({ topic_arn: topic, subject: 'Trashpanda Winner',
+                  message: "congratulations, you have a new winner #{data}" })
 end
 
 def post(event)
@@ -50,7 +53,7 @@ def post(event)
   @logger.info data
   next_element = {}
   if is_correct?(data.dig('id'), data.dig('answer'))
-    if data.dig('final')
+    if data.dig('id') == LAST_ID
       store(data.dig('answer'))
       next_element = element_by_id(data.dig('id').to_i)
       status = { status: 'success', message: 'You WIN!' }
